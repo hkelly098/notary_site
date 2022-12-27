@@ -1,16 +1,22 @@
 import { createTheme, ThemeProvider, makeStyles} from '@material-ui/core/styles';
-import {Typography} from '@material-ui/core'; 
 import NavBar from './components/NavBar';
-import Scheduler from './components/Scheduler';
+import Home from './pages/Home';
+import About from './pages/About';
+import ContactUs from './pages/ContactUs';
 import './App.css';
+import {Route, Routes} from "react-router-dom"
+import BottomNav from './components/BottonNav';
 
 const theme = createTheme({
   palette: {
     primary: {
-      main:"#2e1667",
+      main:"#060B37",
     },
     secondary: {
-      main:"#c7d8ed",
+      main:"#D2A113",
+    },
+    custom: {
+      main:"#3003fc",
     },
   },
   typography: {
@@ -50,25 +56,12 @@ function App() {
     <div className="App">
       <ThemeProvider theme={theme}>
         <NavBar/>
-        <div className={classes.wrapper}>
-          <Typography variant="h4" className={classes.bigSpace} color="primary">
-             Ochoa's Mobile Notary
-          </Typography>
-          <Typography variant="h5" className={classes.littleSpace} color="primary">
-            Ochoa's Mobile Notary is a trusted and reliable mobile notary business serving the city of Napa
-            and the surrounding areas. Our team of professional and certified notaries are available to travel to your home, 
-            office, or any location of your choice to notarize your documents. Whether you need a document notarized for a real estate transaction, a power of attorney, or any other legal matter, 
-            let the expertise at Ochoa's Mobile Notary handle it. 
-          </Typography>
-          <Typography variant="h5" className={classes.littleSpace} color="primary">
-            Schedule an appointment here or contact us at 415-123-4567 to take advantage of our convenient mobile notary services.
-          </Typography>
-        </div>
-
-        <div className={classes.wrapper}>
-          <Scheduler/>
-        </div>
-        
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+        </Routes>
+        <BottomNav/>
       </ThemeProvider>
     </div>
   );
