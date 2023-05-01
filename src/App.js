@@ -55,12 +55,12 @@ function App() {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
-        <NavBar/>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact-us" element={<ContactUs />} />
-        </Routes>
+            <NavBar/>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact-us" element={<ContactUs />} />
+            </Routes>
         <BottomNav/>
       </ThemeProvider>
     </div>
